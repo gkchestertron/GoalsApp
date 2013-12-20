@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates :username, :password_digest, :session_token, :presence => true
 
   has_many :goals
+  has_many :cheers
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)

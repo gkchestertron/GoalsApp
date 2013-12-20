@@ -42,7 +42,25 @@ end
 
 def create_user
   visit new_user_url
-  fill_in('username', with: 'gerald')
-  fill_in('password', with: 'foobies')
+  name = Faker::Internet.user_name
+  fill_in('username', with: name )
+  fill_in('password', with: Faker::Internet.password )
   click_button('Create new user!')
+  User.find_by_username(name)
+end
+
+def create_goal(title, body, public_or_private)
+  fill_in('title', with: title)
+  fill_in('body', with: body)
+  choose(public_or_private)
+  click_button('Create goal')
+  Goal.find_by_title(title)
+end
+
+def edit_goal(title, body, public_or_private, complete_or_incomplete)
+  fill_in('title', with: title)
+  fill_in('body', with: body)
+  choose(public_or_private)
+  check(complete_or_incomplete)
+  click_button('Edit goal')
 end

@@ -25,9 +25,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @goals = @user.goals
+    @goal = Goal.new
     @private_goals = @goals.select { |goal| goal.private }
     @public_goals = @goals.select { |goal| !goal.private }
-    render :show
   end
 
   def edit

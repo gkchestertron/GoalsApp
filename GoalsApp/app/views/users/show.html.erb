@@ -5,7 +5,8 @@
 	<h2>Private goals</h2>
 	<ul>
 		<% @private_goals.each do |private_goal| %>
-		<li> <%= link_to(private_goal.title, goal_url(private_goal)) %> </li>
+		<li> <%= link_to(private_goal.title, goal_url(private_goal)) %>
+			<%= link_to("Edit goal", edit_goal_url(private_goal))%> </li>
 		<% end %>
 	</ul>
 
@@ -14,7 +15,10 @@
 <h2>Public goals</h2>
 <ul>
 	<% @public_goals.each do |public_goal| %>
-	<li> <%= link_to(public_goal.title, goal_url(public_goal)) %> </li>
+	<li>
+		<%= link_to(public_goal.title, goal_url(public_goal)) %><br>
+		<%= link_to("Edit goal", edit_goal_url(public_goal))%>
+	</li>
 	<% end %>
 </ul>
 
