@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "goal features" do
   before(:each) do
+    create_category
     create_user
   end
 

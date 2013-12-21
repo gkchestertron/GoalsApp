@@ -7,22 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="header">
+	<h1>Goals App</h1>
+	</div>
 
-	<% if flash[:errors] && !flash[:errors].empty? %>
-		<%= flash[:errors] %>
-		<%end%>
+			<% if flash[:errors] && !flash[:errors].empty? %>
+			<ul>
+				<% flash[:errors].each do |err| %>
+				<li>
+				<%= err %>
+				</li>
+				<% end %>
+				</ul>
+			<%end%>
 
 
-<% if current_user %>
-	<%= current_user.username %>
-	<%= button_to("Sign Out", session_url, method: "delete") %>
-<% else %>
-	<%= link_to("Sign In", new_session_url) %>
-	<%= link_to("Sign Up", new_user_url )%>
-<% end %>
-
-<%= yield %>
-
+		<% if current_user %>
+			<%= current_user.username %>
+			<%= button_to("Sign Out", session_url, method: "delete") %>
+		<% else %>
+			<%= link_to("Sign In", new_session_url) %>
+			<%= link_to("Sign Up", new_user_url )%>
+		<% end %>
+<div id="wrapper">
+		<%= yield %>
+</div>
 
 
 </body>
