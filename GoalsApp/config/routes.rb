@@ -5,5 +5,5 @@ GoalsApp::Application.routes.draw do
     resources :cheers, :only => [:create, :destroy]
   end
   resources :categories
-  root :to => "sessions#new"
+  root :to => "categories#index"
 end
