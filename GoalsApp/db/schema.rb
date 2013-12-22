@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131221004429) do
-
-  create_table "categories", :force => true do |t|
-    t.string   "name",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "categories", ["name"], :name => "index_categories_on_name", :unique => true
+ActiveRecord::Schema.define(:version => 20131220224905) do
 
   create_table "cheers", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -32,14 +24,13 @@ ActiveRecord::Schema.define(:version => 20131221004429) do
   add_index "cheers", ["user_id"], :name => "index_cheers_on_user_id"
 
   create_table "goals", :force => true do |t|
-    t.string   "title",                          :null => false
+    t.string   "title",                         :null => false
     t.text     "body"
-    t.integer  "user_id",                        :null => false
-    t.boolean  "completed",   :default => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.boolean  "private",     :default => false
-    t.integer  "category_id", :default => 1,     :null => false
+    t.integer  "user_id",                       :null => false
+    t.boolean  "completed",  :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "private",    :default => false
   end
 
   add_index "goals", ["user_id"], :name => "index_goals_on_user_id"

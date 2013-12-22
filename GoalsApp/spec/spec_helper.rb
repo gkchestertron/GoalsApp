@@ -49,7 +49,7 @@ def create_user
   User.find_by_username(name)
 end
 
-def create_goal(title, body, public_or_private, category = 'main')
+def create_goal(title, body, public_or_private)
   fill_in('title', with: title)
   fill_in('body', with: body)
   choose(public_or_private)
@@ -63,10 +63,4 @@ def edit_goal(title, body, public_or_private, complete_or_incomplete)
   choose(public_or_private)
   check(complete_or_incomplete)
   click_button('Edit goal')
-end
-
-def create_category
-  visit new_category_url
-  fill_in("Name", with: "main")
-  click_button("Create category")
 end

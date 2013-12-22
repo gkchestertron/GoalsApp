@@ -3,7 +3,6 @@ require 'spec_helper'
 
 describe "cheers" do
   before(:each) do
-    create_category
     @user1 = create_user
     @goal1 = create_goal("this my title", "this mah bodeh", "public")
     click_on("Sign Out")
